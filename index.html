@@ -1,0 +1,302 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заметки</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3em;
+            text-align: center;
+            color: #ffd700;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #ffd700;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .note {
+            background-color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #121212;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #e6c00f;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            display: none;
+            padding: 6px 12px;
+            font-size: 0.9em;
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #ffd700;
+        }
+
+        .back-btn.show {
+            display: block;
+        }
+
+        .theme-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            font-size: 0.9em;
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #ffd700;
+        }
+
+        .theme-btn.dark-theme {
+            color: #ffd700;
+            border-color: #ffd700;
+        }
+
+        .theme-btn.light-theme {
+            color: #121212;
+            border-color: #121212;
+        }
+
+        .theme-btn:hover {
+            background-color: #e6c00f;
+        }
+
+        .theme-btn.dark-theme:hover {
+            background-color: #e6c00f;
+        }
+
+        .theme-btn.light-theme:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка "Назад" -->
+    <button class="btn back-btn" id="backBtn" onclick="goBack()">Назад</button>
+
+    <div class="container" id="mainScreen">
+        <h1>Заметки</h1>
+
+        <!-- Кнопки для открытия списков -->
+        <div>
+            <button class="btn" onclick="openList('books')">50 популярных книг</button>
+            <button class="btn" onclick="openList('songs')">30 популярных песен</button>
+            <button class="btn" onclick="openList('magicians')">10 правил фокусников</button>
+            <button class="btn" onclick="openList('movies')">15 шедевров кино</button>
+            <button class="btn" onclick="openList('actors')">15 популярных актеров</button>
+        </div>
+    </div>
+
+    <!-- Списки -->
+    <div id="books" class="note" style="display:none;">
+        <h2>50 популярных книг</h2>
+        <ul>
+            <li>1. "1984" — Джордж Оруэлл</li>
+            <li>2. "Преступление и наказание" — Федор Достоевский</li>
+            <li>3. "Властелин колец" — Дж. Р. Р. Толкин</li>
+            <li>4. "Унесенные ветром" — Маргарет Митчелл</li>
+            <li>5. "Гарри Поттер и философский камень" — Дж. К. Роулинг</li>
+            <li>6. "Анна Каренина" — Лев Толстой</li>
+            <li>7. "Мастер и Маргарита" — Михаил Булгаков</li>
+            <li>8. "Вино из одуванчиков" — Рэй Брэдбери</li>
+            <li>9. "Братья Карамазовы" — Федор Достоевский</li>
+            <li>10. "Три товарища" — Эрих Мария Ремарк</li>
+            <li>11. "Шерлок Холмс" — Артур Конан Дойл</li>
+            <li>12. "Джейн Эйр" — Шарлотта Бронте</li>
+            <li>13. "Граф Монте-Кристо" — Александр Дюма</li>
+            <li>14. "Тень ветра" — Карлос Руис Сафон</li>
+            <li>15. "В поисках утраченного времени" — Марсель Пруст</li>
+            <li>16. "Человек в поисках смысла" — Виктор Франкл</li>
+            <li>17. "Алхимик" — Пауло Коэльо</li>
+            <li>18. "Гордость и предубеждение" — Джейн Остин</li>
+            <li>19. "Грозовой перевал" — Эмили Бронте</li>
+            <li>20. "Дон Кихот" — Мигель де Сервантес</li>
+        </ul>
+    </div>
+
+    <div id="songs" class="note" style="display:none;">
+        <h2>30 популярных песен</h2>
+        <ul>
+            <li>1. "Bohemian Rhapsody" — Queen</li>
+            <li>2. "Like a Rolling Stone" — Bob Dylan</li>
+            <li>3. "Imagine" — John Lennon</li>
+            <li>4. "Smells Like Teen Spirit" — Nirvana</li>
+            <li>5. "Shape of You" — Ed Sheeran</li>
+            <li>6. "Let It Be" — The Beatles</li>
+            <li>7. "Billie Jean" — Michael Jackson</li>
+            <li>8. "Stairway to Heaven" — Led Zeppelin</li>
+            <li>9. "Hey Jude" — The Beatles</li>
+            <li>10. "Hotel California" — Eagles</li>
+            <li>11. "Sweet Child O' Mine" — Guns N' Roses</li>
+            <li>12. "Thriller" — Michael Jackson</li>
+            <li>13. "I Will Always Love You" — Whitney Houston</li>
+            <li>14. "Respect" — Aretha Franklin</li>
+            <li>15. "Rolling in the Deep" — Adele</li>
+            <li>16. "What’s Going On" — Marvin Gaye</li>
+            <li>17. "Hey Ya!" — OutKast</li>
+            <li>18. "Dancing Queen" — ABBA</li>
+            <li>19. "Uptown Funk" — Mark Ronson ft. Bruno Mars</li>
+            <li>20. "Purple Rain" — Prince</li>
+        </ul>
+    </div>
+
+    <div id="magicians" class="note" style="display:none;">
+        <h2>10 правил фокусников</h2>
+        <ul>
+            <li>1. Создавайте эффект удивления</li>
+            <li>2. Маскируйте свои действия</li>
+            <li>3. Используйте быстрые и незаметные движения</li>
+            <li>4. Внимание зрителей должно быть сосредоточено</li>
+            <li>5. Вера в магию — ключ к успеху</li>
+            <li>6. Используйте зрительные иллюзии</li>
+            <li>7. Работа с объектами: карта, монета</li>
+            <li>8. Применяйте секреты манипуляции</li>
+            <li>9. Прекрасно развивайте координацию движений</li>
+            <li>10. Создайте эффект неопределенности</li>
+        </ul>
+    </div>
+
+    <div id="movies" class="note" style="display:none;">
+        <h2>15 шедевров кино</h2>
+        <ul>
+            <li>1. "Крестный отец" (1972)</li>
+            <li>2. "Темный рыцарь" (2008)</li>
+            <li>3. "Список Шиндлера" (1993)</li>
+            <li>4. "Побег из Шоушенка" (1994)</li>
+            <li>5. "Криминальное чтиво" (1994)</li>
+            <li>6. "Властелин колец: Возвращение короля" (2003)</li>
+            <li>7. "Зеленая миля" (1999)</li>
+            <li>8. "Шоушенкский побег" (1994)</li>
+            <li>9. "Леон" (1994)</li>
+            <li>10. "Гладиатор" (2000)</li>
+            <li>11. "Матрица" (1999)</li>
+            <li>12. "Интерстеллар" (2014)</li>
+            <li>13. "Титаник" (1997)</li>
+            <li>14. "Начало" (2010)</li>
+            <li>15. "Робокоп" (1987)</li>
+        </ul>
+    </div>
+
+    <div id="actors" class="note" style="display:none;">
+        <h2>15 популярных актеров</h2>
+        <ul>
+            <li>1. Роберт Дауни-младший</li>
+            <li>2. Леонардо ДиКаприо</li>
+            <li>3. Брэд Питт</li>
+            <li>4. Мэрил Стрип</li>
+            <li>5. Джонни Депп</li>
+            <li>6. Уилл Смит</li>
+            <li>7. Том Хэнкс</li>
+            <li>8. Райан Рейнольдс</li>
+            <li>9. Натали Портман</li>
+            <li>10. Джуди Денч</li>
+            <li>11. Джейк Джилленхол</li>
+            <li>12. Эмма Стоун</li>
+            <li>13. Хью Джекман</li>
+            <li>14. Кейт Бланшетт</li>
+            <li>15. Кристиан Бейл</li>
+        </ul>
+    </div>
+
+    <!-- Кнопка смены темы в правом нижнем углу -->
+    <button class="theme-btn dark-theme" id="themeBtn" onclick="toggleTheme()">Сменить тему</button>
+
+    <script>
+        let isDarkTheme = true;
+
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+            const body = document.body;
+            body.style.backgroundColor = isDarkTheme ? '#121212' : '#f1f1f1';
+            body.style.color = isDarkTheme ? '#e0e0e0' : '#121212';
+            const notes = document.querySelectorAll('.note');
+            notes.forEach(note => {
+                note.style.backgroundColor = isDarkTheme ? '#333' : '#fff';
+            });
+            const headers = document.querySelectorAll('h1, h2');
+            headers.forEach(header => {
+                header.style.color = isDarkTheme ? '#ffd700' : '#1a1a1a';
+            });
+            const btn = document.querySelector('.btn');
+            btn.style.backgroundColor = isDarkTheme ? '#ffd700' : '#1a1a1a';
+            btn.style.color = isDarkTheme ? '#121212' : '#fff';
+            btn.style.border = isDarkTheme ? 'none' : '1px solid #121212';
+            const themeBtn = document.getElementById('themeBtn');
+            if (isDarkTheme) {
+                themeBtn.classList.remove('light-theme');
+                themeBtn.classList.add('dark-theme');
+            } else {
+                themeBtn.classList.remove('dark-theme');
+                themeBtn.classList.add('light-theme');
+            }
+        }
+
+        function openList(listId) {
+            document.getElementById("mainScreen").style.display = "none";
+            document.getElementById(listId).style.display = "block";
+            document.getElementById("backBtn").classList.add("show");
+        }
+
+        function goBack() {
+            const notes = document.querySelectorAll('.note');
+            notes.forEach(note => {
+                note.style.display = 'none';
+            });
+            document.getElementById("mainScreen").style.display = "block";
+            document.getElementById("backBtn").classList.remove("show");
+        }
+    </script>
+</body>
+</html>
